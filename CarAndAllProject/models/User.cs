@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 namespace CarAndAllProject.models;
 
 public class User
@@ -12,6 +11,7 @@ public class User
     public string Password { get; set; }
     [Required]
     public string Email { get; set; }
+    [StringLength(10)]
     public string Phone { get; set; }
 
 }
