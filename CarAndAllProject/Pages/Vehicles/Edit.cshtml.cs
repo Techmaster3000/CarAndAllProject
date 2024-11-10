@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CarAndAllProject.Data;
+using CarAndAllProject.models;
 
-namespace CarAndAllProject.models
+namespace CarAndAllProject.Pages.Vehicles
 {
     public class EditModel : PageModel
     {
@@ -20,7 +21,7 @@ namespace CarAndAllProject.models
         }
 
         [BindProperty]
-        public User User { get; set; } = default!;
+        public Vehicle Vehicle { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,12 +30,12 @@ namespace CarAndAllProject.models
                 return NotFound();
             }
 
-            var user =  await _context.User.FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            var vehicle =  await _context.Vehicle.FirstOrDefaultAsync(m => m.Id == id);
+            if (vehicle == null)
             {
                 return NotFound();
             }
-            User = user;
+            Vehicle = vehicle;
             return Page();
         }
 
@@ -47,7 +48,7 @@ namespace CarAndAllProject.models
                 return Page();
             }
 
-            _context.Attach(User).State = EntityState.Modified;
+            _context.Attach(Vehicle).State = EntityState.Modified;
 
             try
             {
@@ -55,7 +56,7 @@ namespace CarAndAllProject.models
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(User.Id))
+                if (!VehicleExists(Vehicle.Id))
                 {
                     return NotFound();
                 }
@@ -68,9 +69,9 @@ namespace CarAndAllProject.models
             return RedirectToPage("./Index");
         }
 
-        private bool UserExists(int id)
+        private bool VehicleExists(int id)
         {
-            return _context.User.Any(e => e.Id == id);
+            return _context.Vehicle.Any(e => e.Id == id);
         }
     }
 }

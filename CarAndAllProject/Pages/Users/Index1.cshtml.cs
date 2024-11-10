@@ -6,19 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CarAndAllProject.Data;
+using CarAndAllProject.models;
 
-namespace CarAndAllProject.models
+namespace CarAndAllProject.Pages.Users
 {
     public class IndexModel : PageModel
     {
-        private readonly CarAndAllProject.Data.CarAndAllProjectContext _context;
+        private readonly CarAndAllProjectContext _context;
 
-        public IndexModel(CarAndAllProject.Data.CarAndAllProjectContext context)
+        public IndexModel(CarAndAllProjectContext context)
         {
             _context = context;
         }
 
-        public IList<User> User { get;set; } = default!;
+        public IList<User> User { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

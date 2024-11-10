@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CarAndAllProject.Data;
+using CarAndAllProject.models;
 
-namespace CarAndAllProject.models
+namespace CarAndAllProject.Pages.Vehicles
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +20,7 @@ namespace CarAndAllProject.models
         }
 
         [BindProperty]
-        public User User { get; set; } = default!;
+        public Vehicle Vehicle { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,15 +29,15 @@ namespace CarAndAllProject.models
                 return NotFound();
             }
 
-            var user = await _context.User.FirstOrDefaultAsync(m => m.Id == id);
+            var vehicle = await _context.Vehicle.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (user == null)
+            if (vehicle == null)
             {
                 return NotFound();
             }
             else
             {
-                User = user;
+                Vehicle = vehicle;
             }
             return Page();
         }
@@ -48,11 +49,11 @@ namespace CarAndAllProject.models
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
-            if (user != null)
+            var vehicle = await _context.Vehicle.FindAsync(id);
+            if (vehicle != null)
             {
-                User = user;
-                _context.User.Remove(User);
+                Vehicle = vehicle;
+                _context.Vehicle.Remove(Vehicle);
                 await _context.SaveChangesAsync();
             }
 

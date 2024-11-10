@@ -6,14 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CarAndAllProject.Data;
+using CarAndAllProject.models;
 
-namespace CarAndAllProject.models
+namespace CarAndAllProject.Pages.Users
 {
     public class DetailsModel : PageModel
     {
-        private readonly CarAndAllProject.Data.CarAndAllProjectContext _context;
+        private readonly CarAndAllProjectContext _context;
 
-        public DetailsModel(CarAndAllProject.Data.CarAndAllProjectContext context)
+        public DetailsModel(CarAndAllProjectContext context)
         {
             _context = context;
         }

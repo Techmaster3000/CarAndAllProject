@@ -6,14 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CarAndAllProject.Data;
+using CarAndAllProject.models;
 
-namespace CarAndAllProject.models
+namespace CarAndAllProject.Pages.Users
 {
     public class CreateModel : PageModel
     {
-        private readonly CarAndAllProject.Data.CarAndAllProjectContext _context;
+        private readonly CarAndAllProjectContext _context;
 
-        public CreateModel(CarAndAllProject.Data.CarAndAllProjectContext context)
+        public CreateModel(CarAndAllProjectContext context)
         {
             _context = context;
         }
@@ -37,7 +38,7 @@ namespace CarAndAllProject.models
             _context.User.Add(User);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index1");
         }
     }
 }

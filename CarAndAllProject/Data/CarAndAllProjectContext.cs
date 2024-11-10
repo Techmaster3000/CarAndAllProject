@@ -15,5 +15,6 @@ namespace CarAndAllProject.Data
         }
 
         public DbSet<CarAndAllProject.models.User> User { get; set; } = default!;
+        public DbSet<CarAndAllProject.models.Vehicle> Vehicle { get; set; } = default!;
     }
 }

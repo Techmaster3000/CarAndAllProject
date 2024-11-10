@@ -1,0 +1,60 @@
+﻿@page
+@model CarAndAllProject.Pages.Vehicles.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Vehicle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Vehicle.Merk" class="control-label"></label>
+                <input asp-for="Vehicle.Merk" class="form-control" />
+                <span asp-validation-for="Vehicle.Merk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle.Type" class="control-label"></label>
+                <input asp-for="Vehicle.Type" class="form-control" />
+                <span asp-validation-for="Vehicle.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle.Kenteken" class="control-label"></label>
+                <input asp-for="Vehicle.Kenteken" class="form-control" />
+                <span asp-validation-for="Vehicle.Kenteken" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle.Kleur" class="control-label"></label>
+                <input asp-for="Vehicle.Kleur" class="form-control" />
+                <span asp-validation-for="Vehicle.Kleur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle.Aanschafjaar" class="control-label"></label>
+                <input asp-for="Vehicle.Aanschafjaar" class="form-control" />
+                <span asp-validation-for="Vehicle.Aanschafjaar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle.Soort" class="control-label"></label>
+                <select asp-for="Vehicle.Soort" asp-items="Model.VehicleTypes" class="form-control"></select>
+                <span asp-validation-for="Vehicle.Soort" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
