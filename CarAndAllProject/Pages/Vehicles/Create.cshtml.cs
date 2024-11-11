@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CarAndAllProject.Data;
 using CarAndAllProject.models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarAndAllProject.Pages.Vehicles
 {
+    [Authorize(Roles = "Administrator,Huurpark")]
     public class CreateModel : PageModel
     {
         private readonly CarAndAllProject.Data.CarAndAllProjectContext _context;

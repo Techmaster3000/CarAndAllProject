@@ -17,7 +17,7 @@ namespace CarAndAllProject
             builder.Services.AddRazorPages();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<CarAndAllProjectContext>();
+                .AddRoles<IdentityRole>().AddEntityFrameworkStores<CarAndAllProjectContext>();
 
 
             var app = builder.Build();
