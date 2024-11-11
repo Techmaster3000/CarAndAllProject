@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CarAndAllProject.Data;
 using CarAndAllProject.models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CarAndAllProject.Pages.Vehicles
 {
+    [Authorize(Roles = "Administrator,Huurpark")]
     public class EditModel : PageModel
     {
         private readonly CarAndAllProject.Data.CarAndAllProjectContext _context;
