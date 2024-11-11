@@ -26,11 +26,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
-                        <li class="loginlink">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
-                            </li>
                     </ul>
-                    <a class = "btn btn-primary" asp-area="" asp-page="/CreateAccount">Account Aanmaken</a>
+                    <partial name="_LoginPartial" />
+                    <a class="btn btn-primary" asp-area="" asp-page="/CreateAccount">Account Aanmaken</a>
                 </div>
             </div>
         </nav>
