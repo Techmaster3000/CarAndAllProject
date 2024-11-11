@@ -23,5 +23,4 @@
   <ItemGroup>
     <Folder Include="Pages\Identity\" />
   </ItemGroup>
-
 </Project>

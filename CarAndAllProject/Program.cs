@@ -10,6 +10,8 @@ namespace CarAndAllProject
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<CarAndAllProjectContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("CarAndAllProjectContext") ?? throw new InvalidOperationException("Connection string 'CarAndAllProjectContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddRazorPages();

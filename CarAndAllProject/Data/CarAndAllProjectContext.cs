@@ -12,6 +12,7 @@ namespace CarAndAllProject.Data
     public class CarAndAllProjectContext : IdentityDbContext<IdentityUser>
     {
         public CarAndAllProjectContext (DbContextOptions options) : base(options)
+
         {
         }
 
