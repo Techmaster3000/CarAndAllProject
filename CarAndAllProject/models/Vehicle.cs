@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-namespace CarAndAllProject.models;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace CarAndAllProject.models;
+[Table("Vehicles")]
 public class Vehicle
 {
     public int Id { get; set; }

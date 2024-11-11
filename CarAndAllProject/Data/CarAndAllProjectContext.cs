@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using CarAndAllProject.models;
 
 namespace CarAndAllProject.Data
 {
-    public class CarAndAllProjectContext : DbContext
+    public class CarAndAllProjectContext : IdentityDbContext<IdentityUser>
     {
-        public CarAndAllProjectContext (DbContextOptions<CarAndAllProjectContext> options)
-            : base(options)
+        public CarAndAllProjectContext (DbContextOptions options) : base(options)
+
         {
         }
 

@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CarAndAllProject.Data;
+using Microsoft.AspNetCore.Identity;
+
 namespace CarAndAllProject
 {
     public class Program
@@ -13,6 +15,10 @@ namespace CarAndAllProject
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<CarAndAllProjectContext>();
+
 
             var app = builder.Build();
 
